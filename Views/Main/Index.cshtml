@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Korelskiy.WW2Project.Models.WW2Item>
+
+<h5 class="text-center">Случайные статьи</h5>
+
+<div class="row justify-content-center">
+    <div class="col-8 p-2">
+        @foreach (var item in Model)
+        {
+            string path = item.ImageFolder;
+            <div class="card m-2">
+                <div class="card-header text-center">
+                    @item.Classification
+                    @item.Title
+                    @if (item.Country == "СССР")
+                    {
+                        <img src="~/img/ussr.jpg" style="height:35px; width:50px; float:right;" />
+                    }
+                    @if (item.Country == "США")
+                    {
+                        <img src="~/img/usa.jpg" style="height:35px; width:50px; float:right;" />
+                    }
+                    @if (item.Country == "Третий Рейх")
+                    {
+                        <img src="~/img/reich.png" style="height:35px; width:50px; float:right;" />
+                    }
+                </div>
+                <div class="card-body text-center">
+                    <img class="img-thumbnail" src="~/img/@path/main.jpg" />
+                    @if (item is Tank || item is SPA)
+                    {
+                        <div class="mt-2">
+                            <a asp-controller="Land" asp-action="Detalis" asp-route-title="@item.Title" class="btn btn-danger">Подробнее</a>
+                        </div>
+                    }
+                    @if (item is Submarine || item is Battleship)
+                    {
+                        <div class="mt-2">
+                            <a asp-controller="Sea" asp-action="Detalis" asp-route-title="@item.Title" class="btn btn-danger">Подробнее</a>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        }
+    </div>
+
+
+</div>

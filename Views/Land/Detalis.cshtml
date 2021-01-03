@@ -1,0 +1,57 @@
+﻿@model Korelskiy.WW2Project.Models.WW2Item
+
+@{
+    ViewData["Title"] = "Detalis";
+}
+
+<div class="table-responsive mt-2">
+    <h4 class="text-center">@Model.Classification @Model.Title</h4>
+    <hr />
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <td class="w-75 text-center">Краткое описание</td>
+                <td class="w-25 text-center">Характеристики</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Description</td>
+                <td>
+                    <div class="text-center">
+                        @if (Model.Country == "СССР")
+                        {
+                            <img src="~/img/ussr.jpg" style="height:35px; width:50px;" />
+                        }
+                        @if (Model.Country == "США")
+                        {
+                            <img src="~/img/usa.jpg" style="height:35px; width:50px;" />
+                        }
+                        @if (Model.Country == "Третий Рейх")
+                        {
+                            <img src="~/img/reich.png" style="height:35px; width:50px;" />
+                        }
+                    </div>
+                    
+                    <img class="img-fluid mt-1" src="~/img/@Model.ImageFolder/main.jpg" style="height:200px;width:250px;" />
+                    <p>Вооружение: @Model.Weapons</p>
+                    <p>Масса: @Model.Weight т.</p>
+                    <p>Произведено: @Model.NumberOfProd шт.</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h5 class="text-center">Галерея</h5>
+    @for (int i = 1; i <= 5; i++)
+    {
+        string photo = $"{i}.jpg";
+        <div class="text-center">
+            <img class="img-thumbnail" src="~/img/@Model.ImageFolder/@photo" />
+        </div>
+        
+        <hr />
+    }
+</div>
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
