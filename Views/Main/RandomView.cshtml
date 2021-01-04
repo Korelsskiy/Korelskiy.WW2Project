@@ -1,4 +1,9 @@
 ﻿@model IEnumerable<Korelskiy.WW2Project.Models.WW2Item>
+<div class="text-center">
+        <h2>Случайные статьи</h2>
+</div>
+
+
 <div class="row justify-content-center">
     <div class="col-8 p-2">
         @foreach (var item in Model)
@@ -7,12 +12,12 @@
             <div class="card m-2">
                 <div class="card-header text-center">
                     @item.Title
-                    <img src="~/img/@item.CountryFlagImage" style="height:35px; width:50px; float: right" />
+                    <img src="~/img/@item.CountryFlagImage" style="height:35px; width:50px; float:right" />
                 </div>
                 <div class="card-body text-center">
                     <img class="img-thumbnail" src="~/img/@path/main.jpg" />
                     <div class="mt-2">
-                         <a asp-controller="Main" asp-action="Detalis" asp-route-id="@item.Id" class="btn btn-danger">Подробнее</a>
+                        <a asp-controller="Main" asp-action="Detalis" asp-route-id="@item.Id" class="btn btn-danger">Подробнее</a>
                     </div>
                 </div>
             </div>

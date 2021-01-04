@@ -1,0 +1,55 @@
+﻿@model Korelskiy.WW2Project.Models.WW2Item
+<div class="table-responsive mt-2">
+    <h4 class="text-center">@Model.Title</h4>
+    <hr />
+
+    <form method="get" asp-action="Edit" asp-controller="Manager" asp-route-id="@Model.Id">
+        <input type="submit" value="Редактировать"/>
+    </form>
+     
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <td class="w-75 text-center">Краткое описание</td>
+                <td class="w-25 text-center">Характеристики</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Description</td>
+                <td>
+                    <div class="text-center">
+                        <img src="~/img/@Model.CountryFlagImage" style="height:35px; width:50px;" />
+                    </div>
+                    <img class="img-fluid mt-1" src="~/img/@Model.ImageFolder/main.jpg" style="height:200px;width:250px;" />
+                    @if (Model.IsVechicle)
+                     {
+                        <p>Вооружение: @Model.Weapon</p>
+                        <p>Произведено: @Model.ProductionCount шт.</p>
+                        if (Model.Type == ModelTypes.Sea)
+                        {
+                            <p>Водоизмещение: @Model.Weight т.</p>
+                        }
+                     }
+
+                    <p>Начало эксплуатации: @Model.Year г.</p>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h5 class="text-center">Галерея</h5>
+    @for (int i = 1; i <= 5; i++)
+    {
+        string photo = $"{i}.jpg";
+        <div class="text-center">
+            <img class="img-thumbnail" src="~/img/@Model.ImageFolder/@photo" />
+        </div>
+
+        <hr />
+    }
+</div>
+<div>
+    <a asp-action="Index">Назад</a>
+</div>

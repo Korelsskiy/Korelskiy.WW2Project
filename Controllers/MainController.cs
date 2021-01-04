@@ -5,40 +5,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Korelskiy.WW2Project.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace Korelskiy.WW2Project.Controllers
 {
     public class MainController : Controller
     {
         private static Random rnd = new Random();
-        private readonly IDbManager manager;
+        private readonly AppDbContext context;
 
-        public MainController(IDbManager manager)
+        public MainController(AppDbContext context)
         {
-            this.manager = manager;
+            this.context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Detalis(int id)
         {
-            List<WW2Item> items = manager.GetAllItems();
+            return View(await context.Items.FindAsync(id));
+        }
+        public async Task<IActionResult> RandomView()
+        {
+            List<WW2Item> items = await context.Items.ToListAsync();
 
-            List<WW2Item> rndItemsList = new List<WW2Item>() { };
-            int rndItems = 2;
-
-            int i = 0;
-            do
+            if (items.Count > 0)
             {
-                WW2Item itm = items[rnd.Next(0, items.Count)];
-                if (!rndItemsList.Contains(itm))
+                List<WW2Item> rndItemsList = new List<WW2Item>() { };
+                int rndItems = 2;
+
+                int i = 0;
+                if (items.Count > 0)
                 {
-                    rndItemsList.Add(itm);
-                    i++;
+                    do
+                    {
+                        WW2Item itm = items[rnd.Next(0, items.Count)];
+                        if (!rndItemsList.Contains(itm))
+                        {
+                            rndItemsList.Add(itm);
+                            i++;
+                        }
+
+                    }
+                    while (i < rndItems);
                 }
-
+                return View(rndItemsList);
             }
-            while (i < rndItems);
-            
 
-            return View(rndItemsList);
+            return View(items);
+        }
+        public async Task<IActionResult> Index(ModelTypes model)
+        {
+            List<WW2Item> items = new List<WW2Item>();
+            switch (model)
+            {
+                case ModelTypes.Land:
+                    items = await context.Items.Where(x => x.Type == ModelTypes.Land).ToListAsync();
+                    break;
+                case ModelTypes.Sea:
+                    items = await context.Items.Where(x => x.Type == ModelTypes.Sea).ToListAsync();
+                    break;
+                case ModelTypes.Air:
+                    items = await context.Items.Where(x => x.Type == ModelTypes.Air).ToListAsync();
+                    break;
+                default:
+                    break;
+            }
+
+            return View(items);
         }
     }
 }

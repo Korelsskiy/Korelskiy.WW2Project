@@ -3,14 +3,16 @@ using Korelskiy.WW2Project.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Korelskiy.WW2Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210104145825_SiteV2")]
+    partial class SiteV2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,19 +39,10 @@ namespace Korelskiy.WW2Project.Migrations
                     b.Property<bool>("IsVechicle")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ProductionCount")
-                        .HasColumnType("int");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Weapon")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Weight")
                         .HasColumnType("int");
 
                     b.Property<int>("Year")

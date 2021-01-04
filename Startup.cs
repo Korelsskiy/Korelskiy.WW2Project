@@ -28,8 +28,6 @@ namespace Korelskiy.WW2Project
             services.AddControllersWithViews();
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WW2ProjectContext")));
-
-            services.AddScoped<IDbManager, DbManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +54,7 @@ namespace Korelskiy.WW2Project
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Main}/{action=Index}/{id?}");
+                    pattern: "{controller=Main}/{action=RandomView}/{id?}");
             });
         }
     }

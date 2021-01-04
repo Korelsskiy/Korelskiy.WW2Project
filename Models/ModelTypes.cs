@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace Korelskiy.WW2Project.Models
 {
-    public class Submarine : WW2Item
+    public enum ModelTypes
     {
-        public int Displacement { get; set; }
+        Land,
+        Sea,
+        Air
     }
 }
