@@ -10,7 +10,7 @@ namespace Korelskiy.WW2Project.Infrastructure
     {
         public List<WW2Item> GetLandItems();
         public List<WW2Item> GetSeaItems();
-
+        public List<WW2Item> GetAirItems();
         public List<WW2Item> GetAllItems();
     }
 }

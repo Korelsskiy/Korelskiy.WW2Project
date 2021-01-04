@@ -20,7 +20,11 @@ namespace Korelskiy.WW2Project.Infrastructure
             List<SPA> sPAs = _context.SelfPropGuns.ToList();
             List<Battleship> battleships = _context.Battleships.ToList();
             List<Submarine> submarines = _context.Submarines.ToList();
+            List<AirAir> fighters = _context.Fighters.ToList();
+            List<AirGround> bombers = _context.Bombers.ToList();
             List<WW2Item> itms = new List<WW2Item>();
+            itms.AddRange(fighters);
+            itms.AddRange(bombers);
             itms.AddRange(tanks);
             itms.AddRange(sPAs);
             itms.AddRange(battleships);
@@ -47,6 +51,16 @@ namespace Korelskiy.WW2Project.Infrastructure
             List<WW2Item> itms = new List<WW2Item>();
             itms.AddRange(battleships);
             itms.AddRange(submarines);
+            itms = itms.OrderByDescending(x => x.NumberOfProd).ToList();
+            return itms;
+        }
+        public List<WW2Item> GetAirItems()
+        {
+            List<AirAir> fighters = _context.Fighters.ToList();
+            List<AirGround> bombers = _context.Bombers.ToList();
+            List<WW2Item> itms = new List<WW2Item>();
+            itms.AddRange(fighters);
+            itms.AddRange(bombers);
             itms = itms.OrderByDescending(x => x.NumberOfProd).ToList();
             return itms;
         }

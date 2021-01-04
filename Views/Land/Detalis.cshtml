@@ -31,6 +31,18 @@
                         {
                             <img src="~/img/reich.png" style="height:35px; width:50px;" />
                         }
+                        @if (Model.Country == "Великобритания")
+                        {
+                            <img src="~/img/gb.jpg" style="height:35px; width:50px;" />
+                        }
+                        @if (Model.Country == "Японская империя")
+                        {
+                            <img src="~/img/japan.jpg" style="height:35px; width:50px;" />
+                        }
+                        @if (Model.Country == "Япония")
+                        {
+                            <img src="~/img/italy.png" style="height:35px; width:50px;" />
+                        }
                     </div>
                     
                     <img class="img-fluid mt-1" src="~/img/@Model.ImageFolder/main.jpg" style="height:200px;width:250px;" />

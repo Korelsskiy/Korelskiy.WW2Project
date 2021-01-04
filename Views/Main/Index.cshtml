@@ -23,6 +23,18 @@
                     {
                         <img src="~/img/reich.png" style="height:35px; width:50px; float:right;" />
                     }
+                    @if (item.Country == "Великобритания")
+                    {
+                        <img src="~/img/gb.jpg" style="height:35px; width:50px; float:right;" />
+                    }
+                    @if (item.Country == "Япония")
+                    {
+                        <img src="~/img/japan.jpg" style="height:35px; width:50px; float:right;" />
+                    }
+                    @if (item.Country == "Италия")
+                    {
+                        <img src="~/img/italy.png" style="height:35px; width:50px; float:right;" />
+                    }
                 </div>
                 <div class="card-body text-center">
                     <img class="img-thumbnail" src="~/img/@path/main.jpg" />
@@ -38,7 +50,12 @@
                             <a asp-controller="Sea" asp-action="Detalis" asp-route-title="@item.Title" class="btn btn-danger">Подробнее</a>
                         </div>
                     }
-
+                    @if (item is AirAir || item is AirGround)
+                    {
+                        <div class="mt-2">
+                            <a asp-controller="Air" asp-action="Detalis" asp-route-title="@item.Title" class="btn btn-danger">Подробнее</a>
+                        </div>
+                    }
                 </div>
             </div>
         }

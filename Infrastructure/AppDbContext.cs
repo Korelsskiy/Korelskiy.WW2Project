@@ -19,5 +19,7 @@ namespace Korelskiy.WW2Project.Infrastructure
         public DbSet<SPA> SelfPropGuns { get; set; }
         public DbSet<Battleship> Battleships { get; set; }
         public DbSet<Submarine> Submarines { get; set; }
+        public DbSet<AirAir> Fighters { get; set; }
+        public DbSet<AirGround> Bombers { get; set; }
     }
 }
