@@ -16,6 +16,28 @@ namespace Korelskiy.WW2Project.Controllers
         {
             this.context = context;
         }
+
+        public IActionResult Menu()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Menu(int id)
+        {
+            WW2Item item = await context.Items.FindAsync(id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            context.Items.Remove(item);
+            await context.SaveChangesAsync();
+
+            ViewData["Message"] = "Статья удалена";
+
+            return View();
+        }
         public IActionResult Index() => View();
         [HttpPost]
         public async Task<IActionResult> Index(WW2Item item)
@@ -30,6 +52,8 @@ namespace Korelskiy.WW2Project.Controllers
             
             return View(item);
         }
+
+        
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {

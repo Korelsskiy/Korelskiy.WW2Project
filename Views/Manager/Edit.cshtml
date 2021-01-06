@@ -1,74 +1,70 @@
 ﻿@model Korelskiy.WW2Project.Models.WW2Item
-
-@{
-    ViewData["Title"] = "Edit";
-}
-
-<h1>Edit</h1>
-
-<h4>WW2Item</h4>
+<h4 class="text-center">@Model.Title</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImageFolder" class="control-label"></label>
-                <input asp-for="ImageFolder" class="form-control" />
-                <span asp-validation-for="ImageFolder" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CountryFlagImage" class="control-label"></label>
-                <input asp-for="CountryFlagImage" class="form-control" />
-                <span asp-validation-for="CountryFlagImage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Type" class="control-label"></label>
-                <select asp-for="Type" asp-items="Html.GetEnumSelectList<ModelTypes>()" class="form-control"></select>
-                <span asp-validation-for="Type" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsVechicle" /> @Html.DisplayNameFor(model => model.IsVechicle)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" class="form-control" />
-                <span asp-validation-for="Year" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
-                <span asp-validation-for="Weight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weapon" class="control-label"></label>
-                <input asp-for="Weapon" class="form-control" />
-                <span asp-validation-for="Weapon" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductionCount" class="control-label"></label>
-                <input asp-for="ProductionCount" class="form-control" />
-                <span asp-validation-for="ProductionCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input asp-action="Edit" type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+<div class="text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageFolder" class="control-label"></label>
+                    <input asp-for="ImageFolder" class="form-control" />
+                    <span asp-validation-for="ImageFolder" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CountryFlagImage" class="control-label"></label>
+                    <input asp-for="CountryFlagImage" class="form-control" />
+                    <span asp-validation-for="CountryFlagImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Type" class="control-label"></label>
+                    <select asp-for="Type" asp-items="Html.GetEnumSelectList<ModelTypes>()" class="form-control"></select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsVechicle" /> @Html.DisplayNameFor(model => model.IsVechicle)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Year" class="control-label"></label>
+                    <input asp-for="Year" class="form-control" />
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Weight" class="control-label"></label>
+                    <input asp-for="Weight" class="form-control" />
+                    <span asp-validation-for="Weight" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Weapon" class="control-label"></label>
+                    <input asp-for="Weapon" class="form-control" />
+                    <span asp-validation-for="Weapon" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductionCount" class="control-label"></label>
+                    <input asp-for="ProductionCount" class="form-control" />
+                    <span asp-validation-for="ProductionCount" class="text-danger"></span>
+                </div>
+                <div class="form-group justify-content-center">
+                    <input asp-action="Edit" type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
+
 
 <div>
     <a asp-action="Index">Back to List</a>

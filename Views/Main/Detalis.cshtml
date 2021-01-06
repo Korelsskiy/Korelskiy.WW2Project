@@ -3,9 +3,12 @@
     <h4 class="text-center">@Model.Title</h4>
     <hr />
 
-    <form method="get" asp-action="Edit" asp-controller="Manager" asp-route-id="@Model.Id">
-        <input type="submit" value="Редактировать"/>
-    </form>
+    <div class="text-center mb-2">
+        <form method="get" asp-action="Edit" asp-controller="Manager" asp-route-id="@Model.Id">
+            <input class="btn btn-info p-2 text-center" type="submit" value="Редактировать" />
+        </form>
+    </div>
+    
      
 
     <table class="table table-striped">

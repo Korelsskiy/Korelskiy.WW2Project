@@ -1,0 +1,38 @@
+﻿@if (ViewData["Message"]!= null)
+    {
+        <div class="text-center alert alert-success">
+           @ViewData["Message"]
+        </div>   
+    }
+
+<h2 class="text-center">Выберите действие</h2>
+
+<div>
+    <div class="card col-5 text-center m-auto">
+
+        <div class="card-body">
+            <div class="text-center mb-2">
+                <form method="get" asp-action="Index" asp-controller="Manager">
+                    <input class="btn btn-info p-2 text-center" type="submit" value="Добавить статью" />
+                </form>
+            </div>
+
+            <label class="float-left mt-2 ml-2">Введите код статьи:</label>
+            <div class="text-center mb-2 float-left">
+                <form method="get" asp-action="Edit" asp-controller="Manager">
+                    <input type="number" name="id" />
+                    <input class="btn btn-info p-2 text-center" type="submit" value="Редактировать статью" />
+                </form>
+            </div>
+            <div class="text-center float-left">
+                <form method="post" asp-action="Menu" asp-controller="Manager">
+                    <input type="number" name="id" />
+                    <input class="btn btn-info p-2 text-center" type="submit" value="Удалить статью" />
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
