@@ -1,0 +1,38 @@
+﻿<h2 class="text-center">Выберите действие</h2>
+
+<div>
+    <div class="card col-5 text-center m-auto">
+
+        <div class="card-body text-center">
+            <form class="text-center m-auto" method="post">
+                <div class="row justify-content-center">
+                    <label class="text-center">Введите логин:</label>   
+                </div>
+                <div class="row justify-content-center">
+                    <input type="text" name="login" />
+                </div>
+                <div class="row justify-content-center">
+                    <label class="">Введите пароль:</label>
+                </div>
+                <div class="row justify-content-center">
+                    <input type="text" name="password" />
+                </div>
+                <div class="m-2">
+                    <input class="btn btn-info p-2 text-center" type="submit" value="Войти" />
+                </div>
+                
+            </form>
+            
+            <div class="m-2">
+                <form method="get" asp-action="Register">
+                    <input class="btn btn-info p-2 text-center" type="submit" value="Зарегистрироваться" />
+                </form>
+            </div>
+            
+            
+        </div>
+
+    </div>
+
+</div>
+

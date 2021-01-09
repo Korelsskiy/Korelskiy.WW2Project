@@ -25,6 +25,12 @@ namespace Korelskiy.WW2Project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("Cookie").AddCookie("Cookie", config =>
+            {
+                config.LoginPath = "/Admin/Login";
+            });
+            services.AddAuthorization();
+
             services.AddControllersWithViews();
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("WW2ProjectContext")));
@@ -48,6 +54,7 @@ namespace Korelskiy.WW2Project
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

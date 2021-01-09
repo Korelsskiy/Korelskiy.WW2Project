@@ -15,5 +15,6 @@ namespace Korelskiy.WW2Project.Infrastructure
 
         }
         public DbSet<WW2Item> Items { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
