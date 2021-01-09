@@ -8,6 +8,6 @@ namespace Korelskiy.WW2Project
 {
     public class SiteStatus
     {
-        public static User CurrentUser { get; set; } = new User() { Login = "Не авторизован" };
+        public static User CurrentUser { get; set; } = new User() { UserName = "Не авторизован" };
     }
 }

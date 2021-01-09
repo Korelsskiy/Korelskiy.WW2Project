@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Korelskiy.WW2Project.Models
 {
-    public class User : IdentityUser<Guid>
+    public class UserRole : IdentityRole<Guid>
     {
-        public string AvatarPath { get; set; }
+
     }
 }

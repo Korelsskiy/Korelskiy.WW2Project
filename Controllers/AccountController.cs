@@ -40,6 +40,7 @@ namespace Korelskiy.WW2Project.Controllers
 
             return RedirectToAction("Menu");
         }
+       
         public IActionResult Menu()
         {
 
@@ -48,7 +49,7 @@ namespace Korelskiy.WW2Project.Controllers
         [HttpPost]
         public IActionResult Menu(string login, string password)
         {
-            SiteStatus.CurrentUser = context.Users.Where(x => x.Login == login).ToList()[0];
+            //SiteStatus.CurrentUser = context.Users.Where(x => x.UserName == login).ToList()[0];
 
             return RedirectToAction("RandomView", "Main");
         }

@@ -1,4 +1,6 @@
 ﻿using Korelskiy.WW2Project.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Korelskiy.WW2Project.Infrastructure
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User, UserRole, Guid>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -15,6 +17,7 @@ namespace Korelskiy.WW2Project.Infrastructure
 
         }
         public DbSet<WW2Item> Items { get; set; }
-        public DbSet<User> Users { get; set; }
+
+
     }
 }
