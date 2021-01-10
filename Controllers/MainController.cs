@@ -26,7 +26,7 @@ namespace Korelskiy.WW2Project.Controllers
         {
             List<WW2Item> items = await context.Items.ToListAsync();
 
-            if (items.Count > 0)
+            if (items.Count > 1)
             {
                 List<WW2Item> rndItemsList = new List<WW2Item>() { };
                 int rndItems = 2;

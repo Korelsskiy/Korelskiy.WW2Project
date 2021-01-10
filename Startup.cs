@@ -47,7 +47,7 @@ namespace Korelskiy.WW2Project
 
             services.ConfigureApplicationCookie(config =>
             {
-                config.LoginPath = "/Admin/Login";
+                config.LoginPath = "/Account/Menu";
                 config.AccessDeniedPath = "/Employee/AccessDenied";
             });
 
@@ -63,6 +63,10 @@ namespace Korelskiy.WW2Project
                     builder.RequireAssertion(x => 
                        x.User.HasClaim(ClaimTypes.Role, "Manager")
                     || x.User.HasClaim(ClaimTypes.Role, "Administrator"));
+                });
+                options.AddPolicy("StandartUser", builder => 
+                {
+                    builder.RequireClaim(ClaimTypes.Role, "StandartUser");
                 });
             });
 

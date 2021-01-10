@@ -1,5 +1,6 @@
 ﻿using Korelskiy.WW2Project.Infrastructure;
 using Korelskiy.WW2Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Korelskiy.WW2Project.Controllers
 {
+    [Authorize(Policy = "Administrator")]
     public class ManagerController : Controller
     {
         private readonly AppDbContext context;
@@ -78,8 +80,6 @@ namespace Korelskiy.WW2Project.Controllers
                 await context.SaveChangesAsync();
 
             }
-            
-
             return View(item);
         }
     }

@@ -1,7 +1,11 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
+    "iis": {
+      "applicationUrl": "http://localhost/Korelskiy.WW2Project",
+      "sslPort": 0
+    },
     "iisExpress": {
       "applicationUrl": "http://localhost:53678",
       "sslPort": 44330
@@ -16,13 +20,13 @@
       }
     },
     "Korelskiy.WW2Project": {
-      "commandName": "Project",
-      "dotnetRunMessages": "true",
+      "commandName": "IIS",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "https://localhost:1344;http://localhost:1424"
     }
   }
 }

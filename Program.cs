@@ -21,7 +21,7 @@ namespace Korelskiy.WW2Project
             var host = CreateHostBuilder(args).Build();
             using (var scope = host.Services.CreateScope())
             {
-                Databaseinitializer.Init(scope.ServiceProvider);
+                //Databaseinitializer.Init(scope.ServiceProvider);
             }
             host.Run();
         }
@@ -36,24 +36,24 @@ namespace Korelskiy.WW2Project
 
     public static class Databaseinitializer
     {
-        public static void Init(IServiceProvider scopeServiceProvider)
-        {
-            var userManager = scopeServiceProvider.GetServices<UserManager<User>>().First();
+        //public static void Init(IServiceProvider scopeServiceProvider)
+        //{
+        //    var userManager = scopeServiceProvider.GetServices<UserManager<User>>().First();
 
-            var user = new User() 
-            {
-                UserName = "User",
-                AvatarPath = ""
-            };
+        //    var user = new User() 
+        //    {
+        //        UserName = "User",
+        //        AvatarPath = ""
+        //    };
 
-            var result = userManager.CreateAsync(user, "pass").GetAwaiter().GetResult();
+        //    var result = userManager.CreateAsync(user, "pass").GetAwaiter().GetResult();
 
-            if (result.Succeeded)
-            {
-                userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Administrator")).GetAwaiter().GetResult();
-            }
-            //context.Users.Add(user);
-            //context.SaveChanges();
-        }
+        //    if (result.Succeeded)
+        //    {
+        //        userManager.AddClaimAsync(user, new Claim(ClaimTypes.Role, "Administrator")).GetAwaiter().GetResult();
+        //    }
+        //    //context.Users.Add(user);
+        //    //context.SaveChanges();
+        //}
     }
 }
